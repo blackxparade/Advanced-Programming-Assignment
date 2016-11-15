@@ -194,24 +194,18 @@ inline auto operator*(const my_matrix<T,N,M> &l, const my_matrix<T,M,K> &r) {
   return MatrixProd<T, N, K, my_matrix<T,N,M>, my_matrix<T,M,K> >(l,r);
 }
 
-/*
-// case: mtx1 * mtx2 * mtx3 (MatrixProd exists)
-template<class T, int K, int M, class Left, class Right>
-inline auto operator*(const MatrixProd<T,N,M,Left,Right> &l, const my_matrix<T,N,M> &r) {
-  return MatrixProd<T, N, M, MatrixProd<T,N,M,Left,Right>, my_matrix<T,N,M> >(l,r);
+template<class T, int N, int M, int K, class Left, class Right>
+inline auto operator*(const MatrixProd<T,N,M,Left,Right> &l, const my_matrix<T,M,K> &r) {
+  return MatrixProd<T, N, K, MatrixProd<T,N,M,Left,Right>, my_matrix<T,M,K> >(l,r);
 }
 
-// case: mtx1 * (mtx2 * mtx3)
-template<class T, int K, int M, class Left, class Right>
-inline auto operator*(const my_matrix<T,N,M> &l, const MatrixProd<T,N,M,Left,Right> &r) {
-  return MatrixProd<T, N, M, my_matrix<T,N,M>, MatrixProd<T,N,M,Left,Right> >(l,r);
+template<class T, int N, int M, int K, class Left, class Right>
+inline auto operator*(const my_matrix<T,N,M> &l, const MatrixProd<T,M,K,Left,Right> &r) {
+  return MatrixProd<T, N, K, my_matrix<T,N,M>, MatrixProd<T,M,K,Left,Right> >(l,r);
 }
-*/
 
-/**
- * Példa a mátrix sablon egy felhasználására. A beadott feladatban nem szabad
- * szerepelnie.
- */
+
+
 
 
 
@@ -240,6 +234,17 @@ inline auto operator*(const my_matrix<T,N,M> &l, const MatrixProd<T,N,M,Left,Rig
  inline auto operator*(const T &s, const my_matrix<T,N,M> &m) {
    return MatrixScalarProd<T, N, M, my_matrix<T,N,M> >(m,s);
  }
+
+ template<class T, int N, int M, class Mtx>
+ inline auto operator*(const MatrixScalarProd<T,N,M,Mtx> &m, const T &s) {
+   return MatrixScalarProd<T, N, M, MatrixScalarProd<T,N,M,Mtx> >(m,s);
+ }
+
+ template<class T, int N, int M, class Mtx>
+ inline auto operator*(const T &s, const MatrixScalarProd<T,N,M,Mtx> &m) {
+   return MatrixScalarProd<T, N, M, MatrixScalarProd<T,N,M,Mtx> >(m,s);
+ }
+
 
 
 
