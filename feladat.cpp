@@ -3,6 +3,7 @@
 
 
 #include<iostream>
+#include <stdlib.h>
 using namespace std;
 
 /**
@@ -43,7 +44,21 @@ public:
       return data[n][m];
     }
     T& operator()(const int &n, const int &m){
-      return data[n][m];
+        return data[n][m];
+    }
+
+    const T& operator()(int n) const{
+      return data[n];
+    }
+    T& operator()(const int &n){
+      return data[n];
+    }
+
+    const T& operator()() const{
+      return data;
+    }
+    T& operator()(){
+      return data;
     }
 
     template<class Left, class Right>
@@ -175,13 +190,13 @@ class MatrixProd{
   const Right &right;
 public:
   MatrixProd(const Left &l, const Right &r) : left(l), right(r) {}
-  // operator[], amely visszaadja a bal es jobb operandus i-dik pozícióján levõ elem összeget
-  T operator()(int x, int y) const {
-    int sum = 0;
 
-    for (int i=0; i<M; i++){
-      sum += left(x,i) * right(i,y);
-    }
+  T operator()(int x, int y) const {
+    int K = sizeof(left.data) / sizeof(T) / N;
+    T sum = left(x,0) * right(0,y);
+
+    for (int i=1; i<K; i++)
+      sum = sum + left(x,i) * right(i,y);
 
     return sum;
   }
@@ -252,16 +267,59 @@ inline auto operator*(const my_matrix<T,N,M> &l, const MatrixProd<T,M,K,Left,Rig
 
 
 int main() {
-    my_matrix<int,2,2> mtx1;
-    my_matrix<int,2,2> mtx2;
+    my_matrix<int,6,3> mtx1;
+    my_matrix<int,3,4> mtx2;
 
-    my_matrix<int,2,2> mtx3;
+    cout << "mtx1: " << endl;
+    for(int i=0;i<6;i++){
+      for(int j=0; j<3; j++){
+          mtx1(i,j) = rand() % 5 + 1;
+          cout << mtx1(i,j) << " ";
+      }
+      cout << endl;
+    }
+    cout << endl;
+
+    cout << "mtx2: " << endl;
+    for(int i=0;i<3;i++){
+      for(int j=0; j<4; j++){
+          mtx2(i,j) = rand() % 5 + 1;
+          cout << mtx2(i,j) << " ";
+      }
+      cout << endl;
+    }
+    cout << endl;
+
+
+
+
+
+
+
+
+    my_matrix<int,6,4> mtx3;
+    for(int i=0;i<4;i++){
+      for(int j=0; j<8; j++){
+          mtx3(i,j) = 0;
+      }
+    }
+    /*
     my_matrix<int,2,3> mtx4;
     mtx1(1,1) = 55;
     mtx2(1,1) = 11;
+*/
+    mtx3 = mtx1 * mtx2;
 
-    mtx3 = mtx1 - mtx2 - mtx1 - mtx2;
-    cout << "mtx3: " << mtx3(1,1) << endl;
+    cout << "mtx3: " << endl;
+    for(int i=0;i<6;i++){
+      for(int j=0; j<4; j++){
+          //mtx3(i,j) = rand() % 100 + 1;
+          cout << mtx3(i,j) << " ";
+      }
+      cout << endl;
+    }
+    cout << endl;
+
 
     mtx3 = 5 * mtx3;
     cout << "mtx3: " << mtx3(1,1) << endl;
