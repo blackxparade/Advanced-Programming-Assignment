@@ -1,0 +1,249 @@
+feladat.cpp: In function ‘int main()’:
+feladat.cpp:870:26: error: no match for ‘operator*’ (operand types are ‘MatrixProd<int, 3, 8, my_matrix<int, 3, 5>, my_matrix<int, 5, 8> >’ and ‘MatrixProd<int, 8, 1, my_matrix<int, 8, 2>, my_matrix<int, 2, 1> >’)
+     mtx3 = (mtx1 * mtx2) * (mtx4 * mtx5);
+                          ^
+feladat.cpp:546:13: note: candidate: template<class T, int N, int M, int K> auto operator*(const my_matrix<T, N, M>&, const my_matrix<T, M, K>&)
+ inline auto operator*(const my_matrix<T,N,M> &l, const my_matrix<T,M,K> &r) {
+             ^
+feladat.cpp:546:13: note:   template argument deduction/substitution failed:
+feladat.cpp:870:40: note:   ‘MatrixProd<int, 3, 8, my_matrix<int, 3, 5>, my_matrix<int, 5, 8> >’ is not derived from ‘const my_matrix<T, N, M>’
+     mtx3 = (mtx1 * mtx2) * (mtx4 * mtx5);
+                                        ^
+feladat.cpp:551:13: note: candidate: template<class T, int N, int M, int K, class Left, class Right> auto operator*(const MatrixProd<T, N, M, Left, Right>&, const my_matrix<T, M, K>&)
+ inline auto operator*(const MatrixProd<T,N,M,Left,Right> &l, const my_matrix<T,M,K> &r) {
+             ^
+feladat.cpp:551:13: note:   template argument deduction/substitution failed:
+feladat.cpp:870:40: note:   ‘MatrixProd<int, 8, 1, my_matrix<int, 8, 2>, my_matrix<int, 2, 1> >’ is not derived from ‘const my_matrix<T, M, K>’
+     mtx3 = (mtx1 * mtx2) * (mtx4 * mtx5);
+                                        ^
+feladat.cpp:556:13: note: candidate: template<class T, int N, int M, int K, class Left, class Right> auto operator*(const my_matrix<T, N, M>&, const MatrixProd<T, M, K, Left, Right>&)
+ inline auto operator*(const my_matrix<T,N,M> &l, const MatrixProd<T,M,K,Left,Right> &r) {
+             ^
+feladat.cpp:556:13: note:   template argument deduction/substitution failed:
+feladat.cpp:870:40: note:   ‘MatrixProd<int, 3, 8, my_matrix<int, 3, 5>, my_matrix<int, 5, 8> >’ is not derived from ‘const my_matrix<T, N, M>’
+     mtx3 = (mtx1 * mtx2) * (mtx4 * mtx5);
+                                        ^
+feladat.cpp:561:13: note: candidate: template<class T, int N, int M, int K, class Left, class Right> auto operator*(const MatrixProd<T, N, M, Left, Right>&, const MatrixProd<T, M, K, Left, Right>&)
+ inline auto operator*(const MatrixProd<T,N,M,Left,Right> &l, const MatrixProd<T,M,K,Left,Right> &r) {
+             ^
+feladat.cpp:561:13: note:   template argument deduction/substitution failed:
+feladat.cpp:870:40: note:   deduced conflicting types for parameter ‘Left’ (‘my_matrix<int, 3, 5>’ and ‘my_matrix<int, 8, 2>’)
+     mtx3 = (mtx1 * mtx2) * (mtx4 * mtx5);
+                                        ^
+feladat.cpp:570:13: note: candidate: template<class T, int N, int M, int K, class Left, class Right> auto operator*(const MatrixSum<T, N, M, Left, Right>&, const my_matrix<T, M, K>&)
+ inline auto operator*(const MatrixSum<T,N,M,Left,Right> &l, const my_matrix<T,M,K> &r) {
+             ^
+feladat.cpp:570:13: note:   template argument deduction/substitution failed:
+feladat.cpp:870:40: note:   ‘MatrixProd<int, 3, 8, my_matrix<int, 3, 5>, my_matrix<int, 5, 8> >’ is not derived from ‘const MatrixSum<T, N, M, Left, Right>’
+     mtx3 = (mtx1 * mtx2) * (mtx4 * mtx5);
+                                        ^
+feladat.cpp:575:13: note: candidate: template<class T, int N, int M, int K, class Left, class Right> auto operator*(const my_matrix<T, N, M>&, const MatrixSum<T, M, K, Left, Right>&)
+ inline auto operator*(const my_matrix<T,N,M> &l, const MatrixSum<T,M,K,Left,Right> &r) {
+             ^
+feladat.cpp:575:13: note:   template argument deduction/substitution failed:
+feladat.cpp:870:40: note:   ‘MatrixProd<int, 3, 8, my_matrix<int, 3, 5>, my_matrix<int, 5, 8> >’ is not derived from ‘const my_matrix<T, N, M>’
+     mtx3 = (mtx1 * mtx2) * (mtx4 * mtx5);
+                                        ^
+feladat.cpp:580:13: note: candidate: template<class T, int N, int M, int K, class Left, class Right> auto operator*(const MatrixSum<T, N, M, Left, Right>&, const MatrixSum<T, M, K, Left, Right>&)
+ inline auto operator*(const MatrixSum<T,N,M,Left,Right> &l, const MatrixSum<T,M,K,Left,Right> &r) {
+             ^
+feladat.cpp:580:13: note:   template argument deduction/substitution failed:
+feladat.cpp:870:40: note:   ‘MatrixProd<int, 3, 8, my_matrix<int, 3, 5>, my_matrix<int, 5, 8> >’ is not derived from ‘const MatrixSum<T, N, M, Left, Right>’
+     mtx3 = (mtx1 * mtx2) * (mtx4 * mtx5);
+                                        ^
+feladat.cpp:585:13: note: candidate: template<class T, int N, int M, int K, class Left, class Right> auto operator*(const MatrixSum<T, N, M, Left, Right>&, const MatrixProd<T, M, K, Left, Right>&)
+ inline auto operator*(const MatrixSum<T,N,M,Left,Right> &l, const MatrixProd<T,M,K,Left,Right> &r) {
+             ^
+feladat.cpp:585:13: note:   template argument deduction/substitution failed:
+feladat.cpp:870:40: note:   ‘MatrixProd<int, 3, 8, my_matrix<int, 3, 5>, my_matrix<int, 5, 8> >’ is not derived from ‘const MatrixSum<T, N, M, Left, Right>’
+     mtx3 = (mtx1 * mtx2) * (mtx4 * mtx5);
+                                        ^
+feladat.cpp:590:13: note: candidate: template<class T, int N, int M, int K, class Left, class Right> auto operator*(const MatrixProd<T, N, M, Left, Right>&, const MatrixSum<T, M, K, Left, Right>&)
+ inline auto operator*(const MatrixProd<T,N,M,Left,Right> &l, const MatrixSum<T,M,K,Left,Right> &r) {
+             ^
+feladat.cpp:590:13: note:   template argument deduction/substitution failed:
+feladat.cpp:870:40: note:   ‘MatrixProd<int, 8, 1, my_matrix<int, 8, 2>, my_matrix<int, 2, 1> >’ is not derived from ‘const MatrixSum<T, M, K, Left, Right>’
+     mtx3 = (mtx1 * mtx2) * (mtx4 * mtx5);
+                                        ^
+feladat.cpp:595:13: note: candidate: template<class T, int N, int M, int K, class Left, class Right> auto operator*(const MatrixSum<T, N, M, Left, Right>&, const MatrixSub<T, M, K, Left, Right>&)
+ inline auto operator*(const MatrixSum<T,N,M,Left,Right> &l, const MatrixSub<T,M,K,Left,Right> &r) {
+             ^
+feladat.cpp:595:13: note:   template argument deduction/substitution failed:
+feladat.cpp:870:40: note:   ‘MatrixProd<int, 3, 8, my_matrix<int, 3, 5>, my_matrix<int, 5, 8> >’ is not derived from ‘const MatrixSum<T, N, M, Left, Right>’
+     mtx3 = (mtx1 * mtx2) * (mtx4 * mtx5);
+                                        ^
+feladat.cpp:600:13: note: candidate: template<class T, int N, int M, int K, class Left, class Right> auto operator*(const MatrixSub<T, N, M, Left, Right>&, const MatrixSum<T, M, K, Left, Right>&)
+ inline auto operator*(const MatrixSub<T,N,M,Left,Right> &l, const MatrixSum<T,M,K,Left,Right> &r) {
+             ^
+feladat.cpp:600:13: note:   template argument deduction/substitution failed:
+feladat.cpp:870:40: note:   ‘MatrixProd<int, 3, 8, my_matrix<int, 3, 5>, my_matrix<int, 5, 8> >’ is not derived from ‘const MatrixSub<T, N, M, Left, Right>’
+     mtx3 = (mtx1 * mtx2) * (mtx4 * mtx5);
+                                        ^
+feladat.cpp:605:13: note: candidate: template<class T, int N, int M, int K, class Left, class Right, class Mtx> auto operator*(const MatrixSum<T, N, M, Left, Right>&, const MatrixScalarProd<T, M, K, Mtx>&)
+ inline auto operator*(const MatrixSum<T,N,M,Left,Right> &l, const MatrixScalarProd<T,M,K,Mtx> &r) {
+             ^
+feladat.cpp:605:13: note:   template argument deduction/substitution failed:
+feladat.cpp:870:40: note:   ‘MatrixProd<int, 3, 8, my_matrix<int, 3, 5>, my_matrix<int, 5, 8> >’ is not derived from ‘const MatrixSum<T, N, M, Left, Right>’
+     mtx3 = (mtx1 * mtx2) * (mtx4 * mtx5);
+                                        ^
+feladat.cpp:610:13: note: candidate: template<class T, int N, int M, int K, class Left, class Right, class Mtx> auto operator*(const MatrixScalarProd<T, N, M, Mtx>&, const MatrixSum<T, M, K, Left, Right>&)
+ inline auto operator*(const MatrixScalarProd<T,N,M,Mtx> &l, const MatrixSum<T,M,K,Left,Right> &r) {
+             ^
+feladat.cpp:610:13: note:   template argument deduction/substitution failed:
+feladat.cpp:870:40: note:   ‘MatrixProd<int, 3, 8, my_matrix<int, 3, 5>, my_matrix<int, 5, 8> >’ is not derived from ‘const MatrixScalarProd<T, N, M, Mtx>’
+     mtx3 = (mtx1 * mtx2) * (mtx4 * mtx5);
+                                        ^
+feladat.cpp:620:13: note: candidate: template<class T, int N, int M, int K, class Left, class Right> auto operator*(const MatrixSub<T, N, M, Left, Right>&, const my_matrix<T, M, K>&)
+ inline auto operator*(const MatrixSub<T,N,M,Left,Right> &l, const my_matrix<T,M,K> &r) {
+             ^
+feladat.cpp:620:13: note:   template argument deduction/substitution failed:
+feladat.cpp:870:40: note:   ‘MatrixProd<int, 3, 8, my_matrix<int, 3, 5>, my_matrix<int, 5, 8> >’ is not derived from ‘const MatrixSub<T, N, M, Left, Right>’
+     mtx3 = (mtx1 * mtx2) * (mtx4 * mtx5);
+                                        ^
+feladat.cpp:625:13: note: candidate: template<class T, int N, int M, int K, class Left, class Right> auto operator*(const my_matrix<T, N, M>&, const MatrixSub<T, M, K, Left, Right>&)
+ inline auto operator*(const my_matrix<T,N,M> &l, const MatrixSub<T,M,K,Left,Right> &r) {
+             ^
+feladat.cpp:625:13: note:   template argument deduction/substitution failed:
+feladat.cpp:870:40: note:   ‘MatrixProd<int, 3, 8, my_matrix<int, 3, 5>, my_matrix<int, 5, 8> >’ is not derived from ‘const my_matrix<T, N, M>’
+     mtx3 = (mtx1 * mtx2) * (mtx4 * mtx5);
+                                        ^
+feladat.cpp:630:13: note: candidate: template<class T, int N, int M, int K, class Left, class Right> auto operator*(const MatrixSub<T, N, M, Left, Right>&, const MatrixSub<T, M, K, Left, Right>&)
+ inline auto operator*(const MatrixSub<T,N,M,Left,Right> &l, const MatrixSub<T,M,K,Left,Right> &r) {
+             ^
+feladat.cpp:630:13: note:   template argument deduction/substitution failed:
+feladat.cpp:870:40: note:   ‘MatrixProd<int, 3, 8, my_matrix<int, 3, 5>, my_matrix<int, 5, 8> >’ is not derived from ‘const MatrixSub<T, N, M, Left, Right>’
+     mtx3 = (mtx1 * mtx2) * (mtx4 * mtx5);
+                                        ^
+feladat.cpp:635:13: note: candidate: template<class T, int N, int M, int K, class Left, class Right> auto operator*(const MatrixSub<T, N, M, Left, Right>&, const MatrixProd<T, M, K, Left, Right>&)
+ inline auto operator*(const MatrixSub<T,N,M,Left,Right> &l, const MatrixProd<T,M,K,Left,Right> &r) {
+             ^
+feladat.cpp:635:13: note:   template argument deduction/substitution failed:
+feladat.cpp:870:40: note:   ‘MatrixProd<int, 3, 8, my_matrix<int, 3, 5>, my_matrix<int, 5, 8> >’ is not derived from ‘const MatrixSub<T, N, M, Left, Right>’
+     mtx3 = (mtx1 * mtx2) * (mtx4 * mtx5);
+                                        ^
+feladat.cpp:640:13: note: candidate: template<class T, int N, int M, int K, class Left, class Right> auto operator*(const MatrixProd<T, N, M, Left, Right>&, const MatrixSub<T, M, K, Left, Right>&)
+ inline auto operator*(const MatrixProd<T,N,M,Left,Right> &l, const MatrixSub<T,M,K,Left,Right> &r) {
+             ^
+feladat.cpp:640:13: note:   template argument deduction/substitution failed:
+feladat.cpp:870:40: note:   ‘MatrixProd<int, 8, 1, my_matrix<int, 8, 2>, my_matrix<int, 2, 1> >’ is not derived from ‘const MatrixSub<T, M, K, Left, Right>’
+     mtx3 = (mtx1 * mtx2) * (mtx4 * mtx5);
+                                        ^
+feladat.cpp:645:13: note: candidate: template<class T, int N, int M, int K, class Left, class Right, class Mtx> auto operator*(const MatrixSub<T, N, M, Left, Right>&, const MatrixScalarProd<T, M, K, Mtx>&)
+ inline auto operator*(const MatrixSub<T,N,M,Left,Right> &l, const MatrixScalarProd<T,M,K,Mtx> &r) {
+             ^
+feladat.cpp:645:13: note:   template argument deduction/substitution failed:
+feladat.cpp:870:40: note:   ‘MatrixProd<int, 3, 8, my_matrix<int, 3, 5>, my_matrix<int, 5, 8> >’ is not derived from ‘const MatrixSub<T, N, M, Left, Right>’
+     mtx3 = (mtx1 * mtx2) * (mtx4 * mtx5);
+                                        ^
+feladat.cpp:650:13: note: candidate: template<class T, int N, int M, int K, class Left, class Right, class Mtx> auto operator*(const MatrixScalarProd<T, N, M, Mtx>&, const MatrixSub<T, M, K, Left, Right>&)
+ inline auto operator*(const MatrixScalarProd<T,N,M,Mtx> &l, const MatrixSub<T,M,K,Left,Right> &r) {
+             ^
+feladat.cpp:650:13: note:   template argument deduction/substitution failed:
+feladat.cpp:870:40: note:   ‘MatrixProd<int, 3, 8, my_matrix<int, 3, 5>, my_matrix<int, 5, 8> >’ is not derived from ‘const MatrixScalarProd<T, N, M, Mtx>’
+     mtx3 = (mtx1 * mtx2) * (mtx4 * mtx5);
+                                        ^
+feladat.cpp:658:13: note: candidate: template<class T, int N, int M, int K, class Mtx> auto operator*(const MatrixScalarProd<T, N, M, Mtx>&, const my_matrix<T, M, K>&)
+ inline auto operator*(const MatrixScalarProd<T,N,M,Mtx> &l, const my_matrix<T,M,K> &r) {
+             ^
+feladat.cpp:658:13: note:   template argument deduction/substitution failed:
+feladat.cpp:870:40: note:   ‘MatrixProd<int, 3, 8, my_matrix<int, 3, 5>, my_matrix<int, 5, 8> >’ is not derived from ‘const MatrixScalarProd<T, N, M, Mtx>’
+     mtx3 = (mtx1 * mtx2) * (mtx4 * mtx5);
+                                        ^
+feladat.cpp:663:13: note: candidate: template<class T, int N, int M, int K, class Mtx> auto operator*(const my_matrix<T, N, M>&, const MatrixScalarProd<T, M, K, Mtx>&)
+ inline auto operator*(const my_matrix<T,N,M> &l, const MatrixScalarProd<T,M,K,Mtx> &r) {
+             ^
+feladat.cpp:663:13: note:   template argument deduction/substitution failed:
+feladat.cpp:870:40: note:   ‘MatrixProd<int, 3, 8, my_matrix<int, 3, 5>, my_matrix<int, 5, 8> >’ is not derived from ‘const my_matrix<T, N, M>’
+     mtx3 = (mtx1 * mtx2) * (mtx4 * mtx5);
+                                        ^
+feladat.cpp:668:13: note: candidate: template<class T, int N, int M, int K, class Mtx> auto operator*(const MatrixScalarProd<T, N, M, Mtx>&, const MatrixScalarProd<T, M, K, Mtx>&)
+ inline auto operator*(const MatrixScalarProd<T,N,M,Mtx> &l, const MatrixScalarProd<T,M,K,Mtx> &r) {
+             ^
+feladat.cpp:668:13: note:   template argument deduction/substitution failed:
+feladat.cpp:870:40: note:   ‘MatrixProd<int, 3, 8, my_matrix<int, 3, 5>, my_matrix<int, 5, 8> >’ is not derived from ‘const MatrixScalarProd<T, N, M, Mtx>’
+     mtx3 = (mtx1 * mtx2) * (mtx4 * mtx5);
+                                        ^
+feladat.cpp:673:13: note: candidate: template<class T, int N, int M, int K, class Left, class Right, class Mtx> auto operator*(const MatrixScalarProd<T, N, M, Mtx>&, const MatrixProd<T, M, K, Left, Right>&)
+ inline auto operator*(const MatrixScalarProd<T,N,M,Mtx> &l, const MatrixProd<T,M,K,Left,Right> &r) {
+             ^
+feladat.cpp:673:13: note:   template argument deduction/substitution failed:
+feladat.cpp:870:40: note:   ‘MatrixProd<int, 3, 8, my_matrix<int, 3, 5>, my_matrix<int, 5, 8> >’ is not derived from ‘const MatrixScalarProd<T, N, M, Mtx>’
+     mtx3 = (mtx1 * mtx2) * (mtx4 * mtx5);
+                                        ^
+feladat.cpp:678:13: note: candidate: template<class T, int N, int M, int K, class Left, class Right, class Mtx> auto operator*(const MatrixProd<T, N, M, Left, Right>&, const MatrixScalarProd<T, M, K, Mtx>&)
+ inline auto operator*(const MatrixProd<T,N,M,Left,Right> &l, const MatrixScalarProd<T,M,K,Mtx> &r) {
+             ^
+feladat.cpp:678:13: note:   template argument deduction/substitution failed:
+feladat.cpp:870:40: note:   ‘MatrixProd<int, 8, 1, my_matrix<int, 8, 2>, my_matrix<int, 2, 1> >’ is not derived from ‘const MatrixScalarProd<T, M, K, Mtx>’
+     mtx3 = (mtx1 * mtx2) * (mtx4 * mtx5);
+                                        ^
+feladat.cpp:727:14: note: candidate: template<class T, int N, int M> auto operator*(const my_matrix<T, N, M>&, const T&)
+  inline auto operator*(const my_matrix<T,N,M> &m, const T &s) {
+              ^
+feladat.cpp:727:14: note:   template argument deduction/substitution failed:
+feladat.cpp:870:40: note:   ‘MatrixProd<int, 3, 8, my_matrix<int, 3, 5>, my_matrix<int, 5, 8> >’ is not derived from ‘const my_matrix<T, N, M>’
+     mtx3 = (mtx1 * mtx2) * (mtx4 * mtx5);
+                                        ^
+feladat.cpp:732:14: note: candidate: template<class T, int N, int M> auto operator*(const T&, const my_matrix<T, N, M>&)
+  inline auto operator*(const T &s, const my_matrix<T,N,M> &m) {
+              ^
+feladat.cpp:732:14: note:   template argument deduction/substitution failed:
+feladat.cpp:870:40: note:   ‘MatrixProd<int, 8, 1, my_matrix<int, 8, 2>, my_matrix<int, 2, 1> >’ is not derived from ‘const my_matrix<T, N, M>’
+     mtx3 = (mtx1 * mtx2) * (mtx4 * mtx5);
+                                        ^
+feladat.cpp:737:14: note: candidate: template<class T, int N, int M, class Mtx> auto operator*(const MatrixScalarProd<T, N, M, Mtx>&, const T&)
+  inline auto operator*(const MatrixScalarProd<T,N,M,Mtx> &m, const T &s) {
+              ^
+feladat.cpp:737:14: note:   template argument deduction/substitution failed:
+feladat.cpp:870:40: note:   ‘MatrixProd<int, 3, 8, my_matrix<int, 3, 5>, my_matrix<int, 5, 8> >’ is not derived from ‘const MatrixScalarProd<T, N, M, Mtx>’
+     mtx3 = (mtx1 * mtx2) * (mtx4 * mtx5);
+                                        ^
+feladat.cpp:742:14: note: candidate: template<class T, int N, int M, class Mtx> auto operator*(const T&, const MatrixScalarProd<T, N, M, Mtx>&)
+  inline auto operator*(const T &s, const MatrixScalarProd<T,N,M,Mtx> &m) {
+              ^
+feladat.cpp:742:14: note:   template argument deduction/substitution failed:
+feladat.cpp:870:40: note:   ‘MatrixProd<int, 8, 1, my_matrix<int, 8, 2>, my_matrix<int, 2, 1> >’ is not derived from ‘const MatrixScalarProd<T, N, M, Mtx>’
+     mtx3 = (mtx1 * mtx2) * (mtx4 * mtx5);
+                                        ^
+feladat.cpp:748:14: note: candidate: template<class T, int N, int M, class Left, class Right> auto operator*(const MatrixSum<T, N, M, Left, Right>&, const T&)
+  inline auto operator*(const MatrixSum<T,N,M,Left,Right> &m, const T &s) {
+              ^
+feladat.cpp:748:14: note:   template argument deduction/substitution failed:
+feladat.cpp:870:40: note:   ‘MatrixProd<int, 3, 8, my_matrix<int, 3, 5>, my_matrix<int, 5, 8> >’ is not derived from ‘const MatrixSum<T, N, M, Left, Right>’
+     mtx3 = (mtx1 * mtx2) * (mtx4 * mtx5);
+                                        ^
+feladat.cpp:753:14: note: candidate: template<class T, int N, int M, class Left, class Right> auto operator*(const T&, const MatrixSum<T, N, M, Left, Right>&)
+  inline auto operator*(const T &s, const MatrixSum<T,N,M,Left,Right> &m) {
+              ^
+feladat.cpp:753:14: note:   template argument deduction/substitution failed:
+feladat.cpp:870:40: note:   ‘MatrixProd<int, 8, 1, my_matrix<int, 8, 2>, my_matrix<int, 2, 1> >’ is not derived from ‘const MatrixSum<T, N, M, Left, Right>’
+     mtx3 = (mtx1 * mtx2) * (mtx4 * mtx5);
+                                        ^
+feladat.cpp:759:14: note: candidate: template<class T, int N, int M, class Left, class Right> auto operator*(const MatrixSub<T, N, M, Left, Right>&, const T&)
+  inline auto operator*(const MatrixSub<T,N,M,Left,Right> &m, const T &s) {
+              ^
+feladat.cpp:759:14: note:   template argument deduction/substitution failed:
+feladat.cpp:870:40: note:   ‘MatrixProd<int, 3, 8, my_matrix<int, 3, 5>, my_matrix<int, 5, 8> >’ is not derived from ‘const MatrixSub<T, N, M, Left, Right>’
+     mtx3 = (mtx1 * mtx2) * (mtx4 * mtx5);
+                                        ^
+feladat.cpp:764:14: note: candidate: template<class T, int N, int M, class Left, class Right> auto operator*(const T&, const MatrixSub<T, N, M, Left, Right>&)
+  inline auto operator*(const T &s, const MatrixSub<T,N,M,Left,Right> &m) {
+              ^
+feladat.cpp:764:14: note:   template argument deduction/substitution failed:
+feladat.cpp:870:40: note:   ‘MatrixProd<int, 8, 1, my_matrix<int, 8, 2>, my_matrix<int, 2, 1> >’ is not derived from ‘const MatrixSub<T, N, M, Left, Right>’
+     mtx3 = (mtx1 * mtx2) * (mtx4 * mtx5);
+                                        ^
+feladat.cpp:770:14: note: candidate: template<class T, int N, int M, class Left, class Right> auto operator*(const MatrixProd<T, N, M, Left, Right>&, const T&)
+  inline auto operator*(const MatrixProd<T,N,M,Left,Right> &m, const T &s) {
+              ^
+feladat.cpp:770:14: note:   template argument deduction/substitution failed:
+feladat.cpp:870:40: note:   deduced conflicting types for parameter ‘const T’ (‘int’ and ‘MatrixProd<int, 8, 1, my_matrix<int, 8, 2>, my_matrix<int, 2, 1> >’)
+     mtx3 = (mtx1 * mtx2) * (mtx4 * mtx5);
+                                        ^
+feladat.cpp:775:14: note: candidate: template<class T, int N, int M, class Left, class Right> auto operator*(const T&, const MatrixProd<T, N, M, Left, Right>&)
+  inline auto operator*(const T &s, const MatrixProd<T,N,M,Left,Right> &m) {
+              ^
+feladat.cpp:775:14: note:   template argument deduction/substitution failed:
+feladat.cpp:870:40: note:   deduced conflicting types for parameter ‘T’ (‘MatrixProd<int, 3, 8, my_matrix<int, 3, 5>, my_matrix<int, 5, 8> >’ and ‘int’)
+     mtx3 = (mtx1 * mtx2) * (mtx4 * mtx5);
+                                        ^
